@@ -1,0 +1,26 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* styling for the general information section */
+
+.gen-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.gen-info-contact {
+  display: flex;
+  gap: 16px;
+}
+
+.vl {
+  width: 1px;
+  height: auto;
+  background-color: black;
+}
