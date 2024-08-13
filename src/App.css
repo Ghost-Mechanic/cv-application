@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  align-items: center;
 }
 
 /* styling for the general information section */
@@ -27,6 +28,48 @@
 
 .form-error {
   color: red;
+}
+
+/* styling for the education section */
+
+.section-title {
+  margin-bottom: 0.33em;
+  text-align: left;
+}
+
+.hl {
+  width: 80vw;
+  height: 1px;
+  background-color: black;
+}
+
+.school-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.school-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.school-main h2,
+.school-main h3 {
+  margin: 0.33em;
+}
+
+.school-main h2 {
+  margin-top: 20px;
+}
+
+.school-dates {
+  font-weight: lighter;
+  font-style: italic;
+}
+
+.school-dates h3 {
+  margin-top: 20px;
 }
 
 /* styling for the editing buttons */
