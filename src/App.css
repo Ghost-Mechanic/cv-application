@@ -1,7 +1,7 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   text-align: center;
   align-items: center;
 }
@@ -16,6 +16,10 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
+}
+
+.gen-info h1 {
+  margin-bottom: 0.25em;
 }
 
 .gen-info-contact {
@@ -121,8 +125,18 @@
 }
 
 .exp-info h2,
+.exp-info h3 {
+  margin: 0;
+}
+
+.exp-info h2,
 .exp-dates h3 {
   margin-top: 20px;
+}
+
+.exp-dates {
+  font-weight: lighter;
+  font-style: italic;
 }
 
 .exp-duties {
@@ -141,4 +155,116 @@
   justify-content: center;
   align-items: center;
   gap: 16px;
+}
+
+
+/* styling for larger screens */
+
+@media (min-width: 1024px) {
+  .gen-info h1 {
+    font-size: 3em;
+  }
+
+  .gen-info-contact {
+    font-size: 0.8em;
+  }
+
+  .section-title {
+    font-size: 2em;
+  }
+
+  .school-main {
+    font-size: 0.8em;
+  }
+
+  .school-dates {
+    font-size: 0.8em;
+  }
+
+  .exp-info {
+    font-size: 0.8em;
+  }
+
+  .exp-dates {
+    font-size: 0.8em;
+  }
+}
+
+@media (min-width: 1920px) {
+  .gen-info h1 {
+    font-size: 4em;
+  }
+
+  .gen-info-contact {
+    font-size: 1.25em;
+  }
+
+  .section-title {
+    font-size: 2em;
+  }
+
+  .school-main {
+    font-size: 1em;
+  }
+
+  .school-dates {
+    font-size: 1.3em;
+  }
+
+  .exp-info {
+    font-size: 1em;
+  }
+
+  .exp-dates {
+    font-size: 1.3em;
+  }
+
+  .exp-duties {
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 2560px) {
+  .gen-info h1 {
+    font-size: 5em;
+  }
+
+  .gen-info-contact {
+    font-size: 1.75em;
+  }
+
+  .section-title {
+    font-size: 4em;
+  }
+
+  .exp-duties {
+    font-size: 1.75em;
+  }
+
+  .school-main,
+  .school-dates,
+  .exp-info,
+  .exp-dates {
+    font-size: 1.5em;
+  }
+
+  .edit-buttons {
+    font-size: 1.5em;
+  }
+
+  .gen-form,
+  .edu-form,
+  .exp-form {
+    font-size: 1.25em;
+  }
+
+  form {
+    font-size: 1em;
+  }
+
+  input {
+    margin-left: 0.75em;
+    margin-top: 0.75em;
+    font-size: 1em;
+  }
 }
