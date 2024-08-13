@@ -24,3 +24,17 @@
   height: auto;
   background-color: black;
 }
+
+.form-error {
+  color: red;
+}
+
+/* styling for the editing buttons */
+
+.edit-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}

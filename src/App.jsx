@@ -4,6 +4,7 @@ import GeneralInput from './General';
 
 function App() {
   const [editingGenInfo, setEditingGenInfo] = useState(false);
+  const [formError, setFormError] = useState('');
   const [name, setName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
@@ -21,8 +22,24 @@ function App() {
     setEmail(e.target.value);
   }
 
-  function handleGenInfoSubmit() {
-    setEditingGenInfo(false);
+  // handle the general information submission while checking for errors
+  function handleGenInfoSubmit(e) {
+    e.preventDefault();
+
+    if (name === '') {
+      console.log('test');
+      setFormError('You must include a name');
+    }
+    else if (phoneNumber === '') {
+      setFormError('You must include a phone number');
+    }
+    else if (email === '') {
+      setFormError('You must include an email');
+    }
+    else {
+      setFormError('');
+      setEditingGenInfo(false);
+    }
   }
 
   return (
@@ -37,15 +54,17 @@ function App() {
           </div>
         </div> : null}
 
-        <button onClick={() => setEditingGenInfo(!editingGenInfo)}>Edit General Information</button>
-        <button onClick={() => setEditingGenInfo(!editingGenInfo)}>Edit Education</button>
+        <div className="edit-buttons">
+          <button onClick={() => setEditingGenInfo(!editingGenInfo)}>Edit General Information</button>
+          <button onClick={() => setEditingGenInfo(!editingGenInfo)}>Edit Education</button>
+        </div>
 
         {editingGenInfo ? 
         <div className="gen-form">
           <GeneralInput label="Name" value={name} handleChange={handleNameChange} />
           <GeneralInput label="Phone Number" value={phoneNumber} handleChange={handleNumberChange} />
           <GeneralInput label="Email" value={email} handleChange={handleEmailChange} />
-          <GeneralInput label="Submit" handleChange={handleGenInfoSubmit} />
+          <GeneralInput label="Submit" handleChange={handleGenInfoSubmit} error={formError} />
         </div> : null} 
       
     </>
