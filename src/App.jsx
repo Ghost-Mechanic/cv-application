@@ -78,6 +78,7 @@ function App() {
   const [currPosition, setCurrPosition] = useState('');
   const [currExpFrom, setCurrExpFrom] = useState('');
   const [currExpTo, setCurrExpTo] = useState('');
+  const [isPresent, setIsPresent] = useState(false);
   const [currDuties, setCurrDuties] = useState('');
   const [expArray, setExpArray] = useState([]);
 
@@ -128,6 +129,17 @@ function App() {
 
   function handleToStudyDateChange(e) {
     setToStudyDate(e.target.value);
+  }
+  
+  function handleCheckboxChange() {
+    setIsPresent(!isPresent);
+
+    if (!isPresent) {
+      setCurrExpTo("Present");
+    }
+    else {
+      setCurrExpTo('');
+    }
   }
 
   // handle the educational info submission while handling errors
@@ -193,12 +205,14 @@ function App() {
       setFormErrorExp('You must describe your duties');
     }
     else {
+      const toDate = isPresent ? "Present" : dateString(currExpTo);
+
       const newExperience = {
         id: uuidv4(),
         company: currCompany,
         position: currPosition,
         from: dateString(currExpFrom),
-        to: dateString(currExpTo),
+        to: toDate,
         duties: currDuties
       };
 
@@ -266,7 +280,7 @@ function App() {
         </div>
       </div> : null}
 
-      {expArray.length !== 0 && !addingExp ? 
+      {expArray.length !== 0 && !editingExpInfo ? 
       <div>
       <h1 className="section-title">Experience</h1>
       <div className="hl"></div>
@@ -326,7 +340,7 @@ function App() {
           <Experience label="Company" value={currCompany} handleChange={handleCompanyChange} />
           <Experience label="Position" value={currPosition} handleChange={handlePositionChange} />
           <Experience label="From" value={currExpFrom} handleChange={handleFromExpChange} />
-          <Experience label="To" value={currExpTo} handleChange={handleToExpChange} />
+          <Experience label="To" value={currExpTo} handleChange={handleToExpChange} handleCheckbox={handleCheckboxChange} isPresent={isPresent} />
           <Experience label="Duties" value={currDuties} handleChange={handleDutyChange} />
           <Experience label="Submit" handleChange={handleExpSubmit} error={formErrorExp} />
         </div> : null}
